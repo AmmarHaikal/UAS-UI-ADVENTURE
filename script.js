@@ -1,11 +1,18 @@
-document.getElementById("startButton").addEventListener("click", () => {
-  const loading = document.getElementById("loadingScreen");
-  loading.classList.add("show");
+const startButton = document.getElementById("startButton");
+const loadingScreen = document.getElementById("loadingScreen");
 
-  // simulasi loading sebelum masuk ke halaman berikut
+startButton.addEventListener("click", () => {
+  // tampilkan layar loading
+  loadingScreen.classList.add("show");
+
+  // simulasi loading selama 2 detik
   setTimeout(() => {
-    loading.innerHTML = "<p>Welcome to the Adventure!</p>";
-    // kalau mau beneran pindah halaman, ubah ini jadi:
-    // window.location.href = "halaman2.html";
+    loadingScreen.innerHTML = "<p>Welcome to the Adventure!</p>";
+
+    // setelah 2 detik lagi, pindah ke halaman map
+    setTimeout(() => {
+      window.location.href = "map.html";
+    }, 2000);
+
   }, 2000);
 });
