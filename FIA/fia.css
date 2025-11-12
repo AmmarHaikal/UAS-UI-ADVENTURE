@@ -1,0 +1,108 @@
+/* ======= GLOBAL STYLE ======= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #7f1d1d 0%, #9d174d 50%, #5b21b6 100%);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ======= HERO SECTION ======= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero-content img {
+  display: block;
+  margin: 20px auto;
+}
+
+.makara {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.fia-logo {
+  width: 400px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #f2f2f2;
+}
+
+/* ======= CONTENT SECTIONS ======= */
+.content-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 10%;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.content-section img.content-img {
+  width: 500px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  transition: transform 0.4s ease;
+}
+
+.content-section img.content-img:hover {
+  transform: scale(1.03);
+}
+
+.content-text {
+  max-width: 500px;
+}
+
+.content-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.content-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f1f1f1;
+}
+
+/* ======= POSITION VARIANTS ======= */
+.content-section.left {
+  flex-direction: row;
+}
+
+.content-section.right {
+  flex-direction: row-reverse;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 768px) {
+  .content-section {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .content-section img.content-img {
+    width: 90%;
+  }
+}
