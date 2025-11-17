@@ -1,108 +1,169 @@
-/* ======= GLOBAL STYLE ======= */
+/* ==== GLOBAL ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(120deg, #7f1d1d 0%, #9d174d 50%, #5b21b6 100%);
-  color: #fff;
-  overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #7A003C, #9A1F62, #3A2467);
+    background-attachment: fixed;
+    color: white;
+    overflow-x: hidden;
+    animation: fadeInBody 1s ease-in-out;
 }
 
-/* ======= HERO SECTION ======= */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 50px 20px;
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.hero-content img {
-  display: block;
-  margin: 20px auto;
+/* ==== HERO ==== */
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: heroFade 1.2s ease-out;
 }
 
-.makara {
-  width: 200px;
-  margin-bottom: 10px;
+@keyframes heroFade {
+    from { opacity: 0; transform: scale(1.08); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-.fia-logo {
-  width: 400px;
-  margin-bottom: 30px;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #f2f2f2;
-}
-
-/* ======= CONTENT SECTIONS ======= */
-.content-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 10%;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-
-.content-section img.content-img {
-  width: 500px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-  transition: transform 0.4s ease;
-}
-
-.content-section img.content-img:hover {
-  transform: scale(1.03);
-}
-
-.content-text {
-  max-width: 500px;
-}
-
-.content-text h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.content-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #f1f1f1;
-}
-
-/* ======= POSITION VARIANTS ======= */
-.content-section.left {
-  flex-direction: row;
-}
-
-.content-section.right {
-  flex-direction: row-reverse;
-}
-
-/* ======= RESPONSIVE ======= */
-@media (max-width: 768px) {
-  .content-section {
-    flex-direction: column !important;
+/* ==== LOGO ==== */
+.logo-section {
     text-align: center;
-  }
+    padding: 50px 0;
+    animation: slideUp 1.2s ease-out;
+}
 
-  .content-section img.content-img {
-    width: 90%;
-  }
+.logo-fia {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
+    transition: 0.4s ease;
+}
+
+.logo-fia:hover {
+    transform: scale(1.1) rotate(2deg);
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(45px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== PHOTO GRID ==== */
+.photo-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    animation: slideUp 1.2s ease-out;
+}
+
+.photo-card {
+    background: rgba(255,255,255,0.07);
+    color: white;
+    width: 300px;
+    border-radius: 18px;
+    padding-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
+    transition: 0.35s ease;
+    backdrop-filter: blur(10px);
+}
+
+.photo-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    transition: 0.4s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.08);
+}
+
+.photo-desc {
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* ==== SECTION DESKRIPSI PALING BAWAH ==== */
+
+#desc-section {
+    width: 100%;
+    padding: 70px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.desc {
+    max-width: 900px;
+    padding: 35px;
+    border-radius: 18px;
+
+    /* GLASS EFFECT MENYATU DENGAN GRADIENT */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+    text-align: center;
+    color: white;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.desc h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.desc p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+    .desc {
+        padding: 25px;
+    }
+    .desc h2 {
+        font-size: 22px;
+    }
+    .desc p {
+        font-size: 14px;
+    }
 }
