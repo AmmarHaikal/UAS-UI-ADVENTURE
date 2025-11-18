@@ -9,7 +9,6 @@
 </head>
 <body>
     
-    <!-- HOME & ABOUT BUTTON -->
     <a href="#" class="btn home-btn" id="homeButton">
         <img src="COVER/gambar/home.png" alt="Home Button">
     </a>
@@ -17,7 +16,6 @@
         <img src="COVER/gambar/about.png" alt="About Button">
     </a>
 
-    <!-- COVER SCREEN -->
     <div class="screen-container" id="coverScreen">
         <img src="COVER/gambar/cover.png" alt="UI Adventure Cover" class="screen-image cover-image">
         
@@ -26,13 +24,11 @@
         </a>
     </div>
 
-    <!-- LOADING SCREEN -->
     <div class="screen-container loading-container" id="loadingScreen">
         <p id="loadingText" class="pixel-text"></p>
         <img src="COVER/gambar/map.png" alt="Main Map Blurred" class="screen-image map-image map-blurred"> 
     </div>
 
-    <!-- MAP SCREEN -->
     <div class="screen-container map-container" id="mapScreen">
         <img src="COVER/gambar/map.png" alt="Main Map Clear" class="screen-image map-image">
         
@@ -46,10 +42,10 @@
                 <img src="COVER/gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
             </a>
 
-            <!-- FIA — DIRECT LINK TO GITHUB BRANCH (NO POPUP) -->
+            <!-- FIA — FIXED VERSION (NO POPUP, DIRECT LINK) -->
             <a 
                 href="https://github.com/ammarhaikal/UAS-UI-ADVENTURE/tree/fia" 
-                class="hotspot fia-hotspot"
+                class="fia-hotspot"
                 target="_blank"
             >
                 <img src="COVER/gambar/fakultas/fia.png" alt="Karakter FIA">
@@ -97,7 +93,6 @@
 
         </div>
 
-        <!-- POPUP -->
         <div id="character-popup" class="character-popup-modal">
             <div class="popup-content">
                 <button id="closePopupArrow" class="popup-close-arrow">
@@ -110,7 +105,6 @@
         </div>
     </div>
     
-    <!-- SCRIPT -->
     <script>
         const coverScreen = document.getElementById('coverScreen');
         const loadingScreen = document.getElementById('loadingScreen');
@@ -150,12 +144,10 @@
             alert('Ini adalah halaman Informasi/About!');
         });
         
-        // STATUS AWAL
         loadingScreen.style.display = 'none';
         mapScreen.style.display = 'none';
         coverScreen.style.display = 'block';
 
-        // POPUP HANDLER
         const hotspots = document.querySelectorAll('.hotspot');
         const popupModal = document.getElementById('character-popup');
         const closeBtnArrow = document.getElementById('closePopupArrow'); 
@@ -178,7 +170,7 @@
                 popupModal.style.display = 'block';
             });
         });
-
+        
         closeBtnArrow.addEventListener('click', function() {
             popupModal.style.display = 'none';
         });
