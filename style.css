@@ -1,1 +1,224 @@
+body {
+    margin: 0;
+    overflow: hidden; 
+    min-height: 100vh; 
+    background-color: #34495e; 
+}
 
+/* --- Gaya Dasar Layar (Cover, Loading, dan Map) --- */
+.screen-container {
+    position: absolute;
+    width: 100vw; 
+    height: 100vh; 
+    top: 0;
+    left: 0;
+    z-index: 5; 
+    background-color: #2c3e50; 
+}
+
+/* Gambar Cover dan Map */
+.screen-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    object-fit: cover; 
+}
+
+/* Efek Blur KHUSUS untuk Peta di Layar Loading */
+.map-blurred {
+    filter: blur(8px); /* Blur yang sedikit lebih kuat (disesuaikan) */
+}
+
+
+/* Gaya Layar Loading */
+.loading-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 20; 
+}
+
+/* Gaya Teks Pixel BARU (Ukuran diperkecil) */
+.pixel-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3vw; /* Ukuran font diperkecil dari 4vw menjadi 3vw */
+    color: #ffcc00; 
+    text-shadow: 3px 3px 0px #000000; /* Shadow juga disesuaikan */
+    margin: 0;
+    padding: 0;
+    /* Pastikan teks loading berada di atas peta yang di-blur */
+    z-index: 30; 
+    position: relative;
+}
+
+
+/* --- Gaya Tombol Navigasi Global dan Start --- */
+.btn {
+    position: absolute;
+    z-index: 30; 
+    display: block;
+    padding: 0;
+    border: none;
+    background: none;
+    line-height: 0;
+}
+
+.btn img {
+    display: block; 
+    width: auto; 
+    height: auto; 
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); 
+    transition: transform 0.1s ease-out, filter 0.1s ease-out; 
+}
+
+/* Posisi dan Ukuran Tombol */
+.home-btn { top: 1.5%; left: 3.23%; width: 85px; height: 85px; }
+.about-btn { top:1.5%; left: calc(4.95% + 65px); width: 85px; height: 85px; }
+.start-btn { bottom: 18%; left: 50%; transform: translateX(-50%); width: 220px; height: 120px; }
+.home-btn img, .about-btn img, .start-btn img { width: 100%; height: 100%; }
+
+/* Efek Hover dan Active pada Tombol Navigasi */
+.btn:hover img { 
+    transform: scale(1.08); 
+    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.9)) brightness(1.2); 
+    cursor: pointer; 
+}
+.btn:active img { 
+    transform: scale(0.92); 
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)) brightness(1.5); 
+    transition: transform 0.05s ease-out, filter 0.05s ease-out; 
+}
+
+
+/* --- Gaya Hotspot Peta Fakultas (Karakter Kecil) --- */
+.map-hotspots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5; 
+}
+
+.hotspot {
+    position: absolute;
+    display: block;
+    width: 140px; 
+    height: 140px; 
+    transition: all 0.1s ease-out;
+}
+
+/* Gaya untuk Gambar Karakter di dalam Hotspot */
+.hotspot img {
+    width: 100%; 
+    height: 100%;
+    display: block;
+    object-fit: contain; 
+    transition: transform 0.1s ease-out; 
+}
+
+/* Efek Hover pada Karakter Hotspot */
+.hotspot:hover {
+    cursor: pointer;
+    background-color: transparent; 
+}
+.hotspot:hover img {
+    transform: scale(1.2); 
+    filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.9)); 
+}
+
+/* Efek Active pada Karakter Hotspot */
+.hotspot:active img {
+    transform: scale(0.92); 
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)) brightness(1.5); 
+    transition: transform 0.05s ease-out, filter 0.05s ease-out; 
+}
+
+/* --- Posisi 13 Hotspot Fakultas --- */
+.ft-hotspot { top: 72.5%; left: 13.5%; }
+.vokasi-hotspot { top: 55%; left: 15.7%; }
+.fia-hotspot { top: 36%; left: 13.6%; }
+.fik-hotspot { top: 20%; left: 19.5%; }
+.fkm-hotspot { top: 11.5%; left: 39.5%; }
+.fmipa-hotspot { top:29.5%; left: 40.7%; }
+.ff-hotspot { top: 24.5%; left: 47.8%; }
+.fpsi-hotspot { top: 32.5%; left: 56.5%; }
+.fisip-hotspot { top: 39.5%; left: 66.5%; }
+.fh-hotspot { top: 55.5%; left: 50.6%; }
+.fasilkom-hotspot { top: 56%; left: 63%; }
+.feb-hotspot { top: 74%; left: 61.45%; }
+.fib-hotspot { top: 74%; left: 50.8%; }
+
+
+/* --- Gaya Pop-up Karakter (Modal) --- */
+.character-popup-modal {
+    display: none; 
+    position: fixed;
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.popup-content {
+    background-color: transparent; 
+    margin: 10% auto; 
+    padding: 0; 
+    border: none; 
+    width: 90%; 
+    max-width: 900px; 
+    text-align: center;
+    border-radius: 10px;
+    position: relative; 
+}
+
+.popup-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+/* --- Gaya Tombol Panah (Close Button) --- */
+.popup-close-arrow {
+    position: absolute;
+    top: 20px; 
+    left: 20px; 
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 101; 
+}
+
+.popup-close-arrow img {
+    width: 60px; 
+    height: 60px;
+    display: block;
+    transition: transform 0.1s ease-out, filter 0.1s ease-out; 
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+}
+
+.popup-close-arrow:hover img {
+    transform: scale(1.08); 
+    filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.9)) brightness(1.2); 
+}
+
+.popup-close-arrow:active img {
+    transform: scale(0.92); 
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)) brightness(1.5); 
+    transition: transform 0.05s ease-out, filter 0.05s ease-out; 
+}
+
+/* Sembunyikan h3 */
+#popup-title {
+    display: none;
+}
