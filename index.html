@@ -46,7 +46,7 @@
                 <img src="COVER/gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
             </a>
 
-            <!-- FIA: DIRECT TO GITHUB BRANCH -->
+            <!-- FIA — DIRECT LINK TO GITHUB BRANCH (NO POPUP) -->
             <a 
                 href="https://github.com/ammarhaikal/UAS-UI-ADVENTURE/tree/fia" 
                 class="hotspot fia-hotspot"
@@ -150,10 +150,12 @@
             alert('Ini adalah halaman Informasi/About!');
         });
         
+        // STATUS AWAL
         loadingScreen.style.display = 'none';
         mapScreen.style.display = 'none';
         coverScreen.style.display = 'block';
 
+        // POPUP HANDLER
         const hotspots = document.querySelectorAll('.hotspot');
         const popupModal = document.getElementById('character-popup');
         const closeBtnArrow = document.getElementById('closePopupArrow'); 
@@ -176,7 +178,7 @@
                 popupModal.style.display = 'block';
             });
         });
-        
+
         closeBtnArrow.addEventListener('click', function() {
             popupModal.style.display = 'none';
         });
