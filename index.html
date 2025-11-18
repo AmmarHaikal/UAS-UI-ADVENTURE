@@ -5,80 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Adventure</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <!-- langsung pakai style.css di root -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <a href="#" class="btn home-btn" id="homeButton">
-        <img src="gambar/home.png" alt="Home Button">
+        <img src="COVER/gambar/home.png" alt="Home Button">
     </a>
     <a href="#" class="btn about-btn" id="aboutButton">
-        <img src="gambar/about.png" alt="About Button">
+        <img src="COVER/gambar/about.png" alt="About Button">
     </a>
 
     <div class="screen-container" id="coverScreen">
-        <img src="gambar/cover.png" alt="UI Adventure Cover" class="screen-image cover-image">
+        <img src="COVER/gambar/cover.png" alt="UI Adventure Cover" class="screen-image cover-image">
         
         <a href="#" class="btn start-btn" id="startButton">
-            <img src="gambar/start.png" alt="Start Button">
+            <img src="COVER/gambar/start.png" alt="Start Button">
         </a>
     </div>
 
     <div class="screen-container loading-container" id="loadingScreen">
         <p id="loadingText" class="pixel-text"></p>
-        <img src="gambar/map.png" alt="Main Map Blurred" class="screen-image map-image map-blurred"> 
+        <img src="COVER/gambar/map.png" alt="Main Map Blurred" class="screen-image map-image map-blurred"> 
     </div>
 
     <div class="screen-container map-container" id="mapScreen">
-        <img src="gambar/map.png" alt="Main Map Clear" class="screen-image map-image">
+        <img src="COVER/gambar/map.png" alt="Main Map Clear" class="screen-image map-image">
         
         <div class="map-hotspots">
             <a href="#" class="hotspot ft-hotspot" data-fakultas="ft">
-                <img src="gambar/fakultas/ft.png" alt="Karakter FT">
+                <img src="COVER/gambar/fakultas/ft.png" alt="Karakter FT">
             </a>
             <a href="#" class="hotspot vokasi-hotspot" data-fakultas="vokasi">
-                <img src="gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
+                <img src="COVER/gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
             </a>
             <a href="fia.html" class="hotspot fia-hotspot">
-                <img src="gambar/fakultas/fia.png" alt="Karakter FIA">
+                <img src="COVER/gambar/fakultas/fia.png" alt="Karakter FIA">
             </a>
             <a href="#" class="hotspot fik-hotspot" data-fakultas="fik">
-                <img src="gambar/fakultas/fik.png" alt="Karakter FIK">
+                <img src="COVER/gambar/fakultas/fik.png" alt="Karakter FIK">
             </a>
             <a href="#" class="hotspot fkm-hotspot" data-fakultas="fkm">
-                <img src="gambar/fakultas/fkm.png" alt="Karakter FKM">
+                <img src="COVER/gambar/fakultas/fkm.png" alt="Karakter FKM">
             </a>
             <a href="#" class="hotspot fmipa-hotspot" data-fakultas="fmipa">
-                <img src="gambar/fakultas/fmipa.png" alt="Karakter FMIPA">
+                <img src="COVER/gambar/fakultas/fmipa.png" alt="Karakter FMIPA">
             </a>
             <a href="#" class="hotspot ff-hotspot" data-fakultas="ff">
-                <img src="gambar/fakultas/ff.png" alt="Karakter FF">
+                <img src="COVER/gambar/fakultas/ff.png" alt="Karakter FF">
             </a>
             <a href="#" class="hotspot fpsi-hotspot" data-fakultas="fpsi">
-                <img src="gambar/fakultas/fpsi.png" alt="Karakter FPSI">
+                <img src="COVER/gambar/fakultas/fpsi.png" alt="Karakter FPSI">
             </a>
             <a href="#" class="hotspot fisip-hotspot" data-fakultas="fisip">
-                <img src="gambar/fakultas/fisip.png" alt="Karakter FISIP">
+                <img src="COVER/gambar/fakultas/fisip.png" alt="Karakter FISIP">
             </a>
             <a href="#" class="hotspot fh-hotspot" data-fakultas="fh">
-                <img src="gambar/fakultas/fh.png" alt="Karakter FH">
+                <img src="COVER/gambar/fakultas/fh.png" alt="Karakter FH">
             </a>
             <a href="#" class="hotspot fasilkom-hotspot" data-fakultas="fasilkom">
-                <img src="gambar/fakultas/fasilkom.png" alt="Karakter FASILKOM">
+                <img src="COVER/gambar/fakultas/fasilkom.png" alt="Karakter FASILKOM">
             </a>
             <a href="#" class="hotspot feb-hotspot" data-fakultas="feb">
-                <img src="gambar/fakultas/feb.png" alt="Karakter FEB">
+                <img src="COVER/gambar/fakultas/feb.png" alt="Karakter FEB">
             </a>
             <a href="#" class="hotspot fib-hotspot" data-fakultas="fib">
-                <img src="gambar/fakultas/fib.png" alt="Karakter FIB">
+                <img src="COVER/gambar/fakultas/fib.png" alt="Karakter FIB">
             </a>
         </div>
 
         <div id="character-popup" class="character-popup-modal">
             <div class="popup-content">
                 <button id="closePopupArrow" class="popup-close-arrow">
-                    <img src="gambar/panah.png" alt="Close">
+                    <img src="COVER/gambar/panah.png" alt="Close">
                 </button>
                 
                 <img id="popup-image" src="" alt="Coming Soon" class="popup-image">
@@ -139,9 +138,10 @@
         hotspots.forEach(hotspot => {
             hotspot.addEventListener('click', function(e) {
                 const fakultasCode = this.getAttribute('data-fakultas');
+                
                 if (!this.href && !DISABLED_FACULTIES.includes(fakultasCode)) {
                     e.preventDefault();
-                    popupImage.src = `gambar/comingsoon.png`; 
+                    popupImage.src = `COVER/gambar/comingsoon.png`; 
                     popupImage.alt = "COMING SOON...";
                     popupTitle.textContent = ''; 
                     popupModal.style.display = 'block';
