@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <a href="#" class="btn home-btn" id="homeButton">
+        <img src="gambar/home.png" alt="Home Button">
+    </a>
+    <a href="#" class="btn about-btn" id="aboutButton">
+        <img src="gambar/about.png" alt="About Button">
+    </a>
+
+    <div class="screen-container" id="coverScreen">
+        <img src="gambar/cover.png" alt="UI Adventure Cover" class="screen-image cover-image">
+        
+        <a href="#" class="btn start-btn" id="startButton">
+            <img src="gambar/start.png" alt="Start Button">
+        </a>
+    </div>
+
+    <div class="screen-container loading-container" id="loadingScreen">
+        <p id="loadingText" class="pixel-text"></p>
+        <img src="gambar/map.png" alt="Main Map Blurred" class="screen-image map-image map-blurred"> 
+    </div>
+
+    <div class="screen-container map-container" id="mapScreen">
+        <img src="gambar/map.png" alt="Main Map Clear" class="screen-image map-image">
+        
+        <div class="map-hotspots">
+            <a href="#" class="hotspot ft-hotspot" data-fakultas="ft">
+                <img src="gambar/fakultas/ft.png" alt="Karakter FT">
+            </a>
+            <a href="#" class="hotspot vokasi-hotspot" data-fakultas="vokasi">
+                <img src="gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
+            </a>
+            <a href="#" class="hotspot fia-hotspot" data-fakultas="fia">
+                <img src="gambar/fakultas/fia.png" alt="Karakter FIA">
+            </a>
+            <a href="#" class="hotspot fik-hotspot" data-fakultas="fik">
+                <img src="gambar/fakultas/fik.png" alt="Karakter FIK">
+            </a>
+            <a href="#" class="hotspot fkm-hotspot" data-fakultas="fkm">
+                <img src="gambar/fakultas/fkm.png" alt="Karakter FKM">
+            </a>
+            <a href="#" class="hotspot fmipa-hotspot" data-fakultas="fmipa">
+                <img src="gambar/fakultas/fmipa.png" alt="Karakter FMIPA">
+            </a>
+            <a href="#" class="hotspot ff-hotspot" data-fakultas="ff">
+                <img src="gambar/fakultas/ff.png" alt="Karakter FF">
+            </a>
+            <a href="#" class="hotspot fpsi-hotspot" data-fakultas="fpsi">
+                <img src="gambar/fakultas/fpsi.png" alt="Karakter FPSI">
+            </a>
+            <a href="#" class="hotspot fisip-hotspot" data-fakultas="fisip">
+                <img src="gambar/fakultas/fisip.png" alt="Karakter FISIP">
+            </a>
+            <a href="#" class="hotspot fh-hotspot" data-fakultas="fh">
+                <img src="gambar/fakultas/fh.png" alt="Karakter FH">
+            </a>
+            <a href="#" class="hotspot fasilkom-hotspot" data-fakultas="fasilkom">
+                <img src="gambar/fakultas/fasilkom.png" alt="Karakter FASILKOM">
+            </a>
+            <a href="#" class="hotspot feb-hotspot" data-fakultas="feb">
+                <img src="gambar/fakultas/feb.png" alt="Karakter FEB">
+            </a>
+            <a href="#" class="hotspot fib-hotspot" data-fakultas="fib">
+                <img src="gambar/fakultas/fib.png" alt="Karakter FIB">
+            </a>
+        </div>
+
+        <div id="character-popup" class="character-popup-modal">
+            <div class="popup-content">
+                <button id="closePopupArrow" class="popup-close-arrow">
+                    <img src="gambar/panah.png" alt="Close">
+                </button>
+                
+                <img id="popup-image" src="" alt="Coming Soon" class="popup-image">
+                <h3 id="popup-title"></h3>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const coverScreen = document.getElementById('coverScreen');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const mapScreen = document.getElementById('mapScreen');
+        const startButton = document.getElementById('startButton');
+        const homeButton = document.getElementById('homeButton');
+        const aboutButton = document.getElementById('aboutButton');
+        const loadingText = document.getElementById('loadingText');
+
+        // Daftar fakultas yang TIDAK boleh menampilkan pop-up
+        const DISABLED_FACULTIES = ['ft', 'vokasi', 'fia', 'fmipa'];
+        
+        // FUNGSI TRANSISI LAYAR
+        startButton.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            
+            // 1. Sembunyikan Cover, Tampilkan Loading
+            coverScreen.style.display = 'none';
+            loadingScreen.style.display = 'flex'; 
+
+            loadingText.textContent = "LOADING....";
+            
+            // 2. Tunda 1.5 detik, lalu ganti ke WELCOME
+            setTimeout(() => {
+                loadingText.textContent = "WELCOME TO THE ADVENTURE!";
+                
+                // 3. Tunda 1.5 detik lagi, lalu tampilkan Map
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    mapScreen.style.display = 'block';
+                }, 1500); 
+            }, 1500); 
+        });
+
+        homeButton.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            // Pastikan semua layar disembunyikan kecuali cover
+            loadingScreen.style.display = 'none';
+            mapScreen.style.display = 'none';
+            document.getElementById('character-popup').style.display = 'none'; 
+
+            coverScreen.style.display = 'block'; 
+        });
+
+        aboutButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Ini adalah halaman Informasi/About!');
+        });
+        
+        // Atur status awal: Tampilkan Cover, Sembunyikan Loading dan Map
+        loadingScreen.style.display = 'none';
+        mapScreen.style.display = 'none';
+        coverScreen.style.display = 'block';
+
+
+        // FUNGSI HOTSPOT POP-UP
+        const hotspots = document.querySelectorAll('.hotspot');
+        const popupModal = document.getElementById('character-popup');
+        const closeBtnArrow = document.getElementById('closePopupArrow'); 
+        const popupImage = document.getElementById('popup-image');
+        const popupTitle = document.getElementById('popup-title');
+
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const fakultasCode = this.getAttribute('data-fakultas');
+                
+                if (DISABLED_FACULTIES.includes(fakultasCode)) {
+                    return; 
+                }
+
+                popupImage.src = `gambar/comingsoon.png`; 
+                popupImage.alt = "COMING SOON...";
+                popupTitle.textContent = ''; 
+                
+                popupModal.style.display = 'block';
+            });
+        });
+        
+        closeBtnArrow.addEventListener('click', function() {
+            popupModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === popupModal) {
+                popupModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
