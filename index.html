@@ -9,6 +9,7 @@
 </head>
 <body>
     
+    <!-- HOME & ABOUT BUTTON -->
     <a href="#" class="btn home-btn" id="homeButton">
         <img src="COVER/gambar/home.png" alt="Home Button">
     </a>
@@ -16,6 +17,7 @@
         <img src="COVER/gambar/about.png" alt="About Button">
     </a>
 
+    <!-- COVER SCREEN -->
     <div class="screen-container" id="coverScreen">
         <img src="COVER/gambar/cover.png" alt="UI Adventure Cover" class="screen-image cover-image">
         
@@ -24,56 +26,78 @@
         </a>
     </div>
 
+    <!-- LOADING SCREEN -->
     <div class="screen-container loading-container" id="loadingScreen">
         <p id="loadingText" class="pixel-text"></p>
         <img src="COVER/gambar/map.png" alt="Main Map Blurred" class="screen-image map-image map-blurred"> 
     </div>
 
+    <!-- MAP SCREEN -->
     <div class="screen-container map-container" id="mapScreen">
         <img src="COVER/gambar/map.png" alt="Main Map Clear" class="screen-image map-image">
         
         <div class="map-hotspots">
+
             <a href="#" class="hotspot ft-hotspot" data-fakultas="ft">
                 <img src="COVER/gambar/fakultas/ft.png" alt="Karakter FT">
             </a>
+
             <a href="#" class="hotspot vokasi-hotspot" data-fakultas="vokasi">
                 <img src="COVER/gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
             </a>
-            <a href="#" class="hotspot fia-hotspot" data-fakultas="fia">
+
+            <!-- FIA: DIRECT TO GITHUB BRANCH -->
+            <a 
+                href="https://github.com/ammarhaikal/UAS-UI-ADVENTURE/tree/fia" 
+                class="hotspot fia-hotspot"
+                target="_blank"
+            >
                 <img src="COVER/gambar/fakultas/fia.png" alt="Karakter FIA">
             </a>
+
             <a href="#" class="hotspot fik-hotspot" data-fakultas="fik">
                 <img src="COVER/gambar/fakultas/fik.png" alt="Karakter FIK">
             </a>
+
             <a href="#" class="hotspot fkm-hotspot" data-fakultas="fkm">
                 <img src="COVER/gambar/fakultas/fkm.png" alt="Karakter FKM">
             </a>
+
             <a href="#" class="hotspot fmipa-hotspot" data-fakultas="fmipa">
                 <img src="COVER/gambar/fakultas/fmipa.png" alt="Karakter FMIPA">
             </a>
+
             <a href="#" class="hotspot ff-hotspot" data-fakultas="ff">
                 <img src="COVER/gambar/fakultas/ff.png" alt="Karakter FF">
             </a>
+
             <a href="#" class="hotspot fpsi-hotspot" data-fakultas="fpsi">
                 <img src="COVER/gambar/fakultas/fpsi.png" alt="Karakter FPSI">
             </a>
+
             <a href="#" class="hotspot fisip-hotspot" data-fakultas="fisip">
                 <img src="COVER/gambar/fakultas/fisip.png" alt="Karakter FISIP">
             </a>
+
             <a href="#" class="hotspot fh-hotspot" data-fakultas="fh">
                 <img src="COVER/gambar/fakultas/fh.png" alt="Karakter FH">
             </a>
+
             <a href="#" class="hotspot fasilkom-hotspot" data-fakultas="fasilkom">
                 <img src="COVER/gambar/fakultas/fasilkom.png" alt="Karakter FASILKOM">
             </a>
+
             <a href="#" class="hotspot feb-hotspot" data-fakultas="feb">
                 <img src="COVER/gambar/fakultas/feb.png" alt="Karakter FEB">
             </a>
+
             <a href="#" class="hotspot fib-hotspot" data-fakultas="fib">
                 <img src="COVER/gambar/fakultas/fib.png" alt="Karakter FIB">
             </a>
+
         </div>
 
+        <!-- POPUP -->
         <div id="character-popup" class="character-popup-modal">
             <div class="popup-content">
                 <button id="closePopupArrow" class="popup-close-arrow">
@@ -86,6 +110,7 @@
         </div>
     </div>
     
+    <!-- SCRIPT -->
     <script>
         const coverScreen = document.getElementById('coverScreen');
         const loadingScreen = document.getElementById('loadingScreen');
@@ -162,5 +187,6 @@
             }
         });
     </script>
+
 </body>
 </html>
