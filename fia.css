@@ -23,9 +23,9 @@ body {
     to { opacity: 1; }
 }
 
-/* ==== HERO FULL SCREEN ==== */
+/* ==== HERO FULL SCREEN (DIPERKECIL, BIAR GAK BERAT) ==== */
 .hero {
-    height: 100vh;
+    height: 85vh;
     width: 100%;
     overflow: hidden;
 }
@@ -35,59 +35,58 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    animation: heroFade 1.2s ease-out;
+    filter: brightness(0.88);
+    animation: heroFade 1s ease-out;
 }
 
 @keyframes heroFade {
-    from { opacity: 0; transform: scale(1.08); }
+    from { opacity: 0; transform: scale(1.06); }
     to { opacity: 1; transform: scale(1); }
 }
 
-/* ==== LOGO FULL SCREEN ==== */
+/* ==== LOGO SCREEN (SIZE DIPERKECIL, LEBIH RAPI) ==== */
 .logo-section {
-    height: 100vh;
+    height: 65vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    animation: slideUp 1.2s ease-out;
+    animation: slideUp 1s ease-out;
 }
 
 .logo-fia {
-    width: 350px;
-    max-width: 70vw;
+    width: 280px;
+    max-width: 60vw;
     height: auto;
     filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
     transition: 0.4s ease;
 }
 
 .logo-fia:hover {
-    transform: scale(1.1) rotate(2deg);
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+    transform: scale(1.08) rotate(1deg);
+    filter: drop-shadow(0 0 18px rgba(255,255,255,0.55));
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(45px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==== PHOTO GRID ==== */
+/* ==== FOTO GRID (DIRAPIKAN) ==== */
 .photo-row {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 60px 20px;
+    gap: 25px;
+    padding: 50px 20px;
     flex-wrap: wrap;
-    animation: slideUp 1.2s ease-out;
+    animation: slideUp 1s ease-out;
 }
 
 .photo-card {
     background: rgba(255,255,255,0.07);
     color: white;
-    width: 300px;
+    width: 260px;
     border-radius: 18px;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.25);
     overflow: hidden;
     transition: 0.35s ease;
@@ -95,13 +94,13 @@ body {
 }
 
 .photo-card:hover {
-    transform: translateY(-12px) scale(1.03);
+    transform: translateY(-10px) scale(1.03);
     box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
 .photo-card img {
     width: 100%;
-    height: 250px;
+    height: 220px;
     object-fit: cover;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
@@ -109,27 +108,27 @@ body {
 }
 
 .photo-card:hover img {
-    transform: scale(1.08);
+    transform: scale(1.07);
 }
 
 .photo-desc {
-    padding: 15px;
-    font-size: 16px;
+    padding: 14px;
+    font-size: 15px;
     text-align: center;
     line-height: 1.4;
 }
 
-/* ==== SECTION DESKRIPSI PALING BAWAH ==== */
+/* ==== DESKRIPSI BAWAH ==== */
 #desc-section {
     width: 100%;
-    padding: 70px 20px;
+    padding: 60px 20px;
     display: flex;
     justify-content: center;
 }
 
 .desc {
-    max-width: 900px;
-    padding: 35px;
+    max-width: 840px;
+    padding: 32px;
     border-radius: 18px;
 
     background: rgba(255, 255, 255, 0.08);
@@ -148,14 +147,14 @@ body {
 }
 
 .desc h2 {
-    font-size: 28px;
-    margin-bottom: 16px;
+    font-size: 26px;
+    margin-bottom: 15px;
     font-weight: 700;
 }
 
 .desc p {
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.65;
 }
 
 @keyframes fadeUp {
@@ -167,17 +166,19 @@ body {
 
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
-    .desc {
-        padding: 25px;
+    .hero {
+        height: 70vh;
     }
-    .desc h2 {
-        font-size: 22px;
-    }
-    .desc p {
-        font-size: 14px;
+
+    .logo-section {
+        height: 55vh;
     }
 
     .logo-fia {
-        width: 260px;
+        width: 220px;
+    }
+
+    .photo-card {
+        width: 90%;
     }
 }
