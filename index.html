@@ -88,89 +88,92 @@
     
     <!-- SCRIPT SUDAH DIPERBAIKI -->
     <script>
-        const coverScreen = document.getElementById('coverScreen');
-        const loadingScreen = document.getElementById('loadingScreen');
-        const mapScreen = document.getElementById('mapScreen');
-        const startButton = document.getElementById('startButton');
-        const homeButton = document.getElementById('homeButton');
-        const aboutButton = document.getElementById('aboutButton');
-        const loadingText = document.getElementById('loadingText');
+    const coverScreen = document.getElementById('coverScreen');
+    const loadingScreen = document.getElementById('loadingScreen');
+    const mapScreen = document.getElementById('mapScreen');
+    const startButton = document.getElementById('startButton');
+    const homeButton = document.getElementById('homeButton');
+    const aboutButton = document.getElementById('aboutButton');
+    const loadingText = document.getElementById('loadingText');
 
-        // FT, Vokasi, FMIPA → klik tapi tidak muncul popup
-        const DISABLED_FACULTIES = ['ft', 'vokasi', 'fmipa'];
+    // FT, Vokasi, FMIPA → tidak munculkan popup
+    const DISABLED_FACULTIES = ['ft', 'vokasi', 'fmipa'];
 
-        startButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            coverScreen.style.display = 'none';
-            loadingScreen.style.display = 'flex';
-            loadingText.textContent = "LOADING....";
-            
+    startButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        coverScreen.style.display = 'none';
+        loadingScreen.style.display = 'flex';
+        loadingText.textContent = "LOADING....";
+
+        setTimeout(() => {
+            loadingText.textContent = "WELCOME TO THE ADVENTURE!";
             setTimeout(() => {
-                loadingText.textContent = "WELCOME TO THE ADVENTURE!";
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                    mapScreen.style.display = 'block';
-                }, 1500);
+                loadingScreen.style.display = 'none';
+                mapScreen.style.display = 'block';
             }, 1500);
-        });
+        }, 1500);
+    });
 
-        homeButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            loadingScreen.style.display = 'none';
-            mapScreen.style.display = 'none';
-            document.getElementById('character-popup').style.display = 'none';
-            coverScreen.style.display = 'block';
-        });
-
-        aboutButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Ini adalah halaman Informasi/About!');
-        });
-
+    homeButton.addEventListener('click', function(e) {
+        e.preventDefault();
         loadingScreen.style.display = 'none';
         mapScreen.style.display = 'none';
+        document.getElementById('character-popup').style.display = 'none';
         coverScreen.style.display = 'block';
+    });
 
-        const hotspots = document.querySelectorAll('.hotspot');
-        const popupModal = document.getElementById('character-popup');
-        const closeBtnArrow = document.getElementById('closePopupArrow');
-        const popupImage = document.getElementById('popup-image');
-        const popupTitle = document.getElementById('popup-title');
+    aboutButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Ini adalah halaman Informasi/About!');
+    });
 
-        hotspots.forEach(hotspot => {
-            hotspot.addEventListener('click', function(e) {
-                const fakultasCode = this.getAttribute('data-fakultas');
-                const link = this.getAttribute('href');
+    loadingScreen.style.display = 'none';
+    mapScreen.style.display = 'none';
+    coverScreen.style.display = 'block';
 
-                // FIA → biarkan masuk ke halaman fia.html
-                if (link && link !== "#") {
-                    return;
-                }
+    const hotspots = document.querySelectorAll('.hotspot');
+    const popupModal = document.getElementById('character-popup');
+    const closeBtnArrow = document.getElementById('closePopupArrow');
+    const popupImage = document.getElementById('popup-image');
+    const popupTitle = document.getElementById('popup-title');
 
-                // FT, Vokasi, FMIPA → tidak melakukan apa-apa
-                if (DISABLED_FACULTIES.includes(fakultasCode)) {
-                    e.preventDefault();
-                    return;
-                }
+    hotspots.forEach(hotspot => {
+        hotspot.addEventListener('click', function(e) {
+            const fakultasCode = this.dataset.fakultas;
 
-                // Fakultas lain → tampilkan popup COMING SOON
-                e.preventDefault();
-                popupImage.src = "COVER/gambar/comingsoon.png";
-                popupImage.alt = "COMING SOON...";
-                popupTitle.textContent = "";
-                popupModal.style.display = 'block';
-            });
-        });
-
-        closeBtnArrow.addEventListener('click', function() {
-            popupModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(e) {
-            if (e.target === popupModal) {
-                popupModal.style.display = 'none';
+            // -------------------------
+            //  FIA → BOLEH MASUK HALAMAN
+            // -------------------------
+            if (fakultasCode === "fia") {
+                return; // biarkan href menuju fia.html
             }
+
+            // ----------------------------------------
+            // FT, VOKASI, FMIPA → KLIK TAPI TIDAK MUNCUL POPUP
+            // ----------------------------------------
+            if (DISABLED_FACULTIES.includes(fakultasCode)) {
+                e.preventDefault();
+                return;
+            }
+
+            // -------------------------
+            // FAKULTAS LAIN → SHOW POPUP
+            // -------------------------
+            e.preventDefault();
+            popupImage.src = "COVER/gambar/comingsoon.png";
+            popupModal.style.display = 'block';
         });
-    </script>
+    });
+
+    closeBtnArrow.addEventListener('click', function() {
+        popupModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(e) {
+        if (e.target === popupModal) {
+            popupModal.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>
