@@ -86,7 +86,7 @@
         </div>
     </div>
     
-    <!-- SCRIPT SUDAH DIPERBAIKI -->
+    <!-- SCRIPT FINAL -->
     <script>
     const coverScreen = document.getElementById('coverScreen');
     const loadingScreen = document.getElementById('loadingScreen');
@@ -96,8 +96,8 @@
     const aboutButton = document.getElementById('aboutButton');
     const loadingText = document.getElementById('loadingText');
 
-    // FT, Vokasi, FMIPA → tidak munculkan popup
-    const DISABLED_FACULTIES = ['ft', 'vokasi', 'fmipa'];
+    // FEB, FT, VOKASI → bisa diklik tapi tidak muncul apa²
+    const DISABLED_FACULTIES = ['feb', 'ft', 'vokasi'];
 
     startButton.addEventListener('click', function(e) {
         e.preventDefault();
@@ -141,26 +141,21 @@
         hotspot.addEventListener('click', function(e) {
             const fakultasCode = this.dataset.fakultas;
 
-            // -------------------------
-            //  FIA → BOLEH MASUK HALAMAN
-            // -------------------------
+            // FIA → boleh masuk
             if (fakultasCode === "fia") {
-                return; // biarkan href menuju fia.html
+                return; 
             }
 
-            // ----------------------------------------
-            // FT, VOKASI, FMIPA → KLIK TAPI TIDAK MUNCUL POPUP
-            // ----------------------------------------
+            // FEB, FT, VOKASI → klik tapi diam
             if (DISABLED_FACULTIES.includes(fakultasCode)) {
                 e.preventDefault();
                 return;
             }
 
-            // -------------------------
-            // FAKULTAS LAIN → SHOW POPUP
-            // -------------------------
+            // FMIPA + fakultas lain → popup
             e.preventDefault();
             popupImage.src = "COVER/gambar/comingsoon.png";
+            popupTitle.textContent = "Coming Soon";
             popupModal.style.display = 'block';
         });
     });
