@@ -16,6 +16,7 @@
         <img src="COVER/gambar/about.png" alt="About Button">
     </a>
 
+    <!-- COVER SCREEN -->
     <div class="screen-container" id="coverScreen">
         <img src="COVER/gambar/cover.png" alt="UI Adventure Cover" class="screen-image cover-image">
         
@@ -24,24 +25,34 @@
         </a>
     </div>
 
+    <!-- LOADING SCREEN -->
     <div class="screen-container loading-container" id="loadingScreen">
         <p id="loadingText" class="pixel-text"></p>
         <img src="COVER/gambar/map.png" alt="Main Map Blurred" class="screen-image map-image map-blurred"> 
     </div>
 
+    <!-- MAP SCREEN -->
     <div class="screen-container map-container" id="mapScreen">
         <img src="COVER/gambar/map.png" alt="Main Map Clear" class="screen-image map-image">
         
         <div class="map-hotspots">
-            <a href="#" class="hotspot ft-hotspot" data-fakultas="ft">
+
+            <!-- FT — langsung masuk -->
+            <a href="teknik.html" class="hotspot ft-hotspot" data-fakultas="ft">
                 <img src="COVER/gambar/fakultas/ft.png" alt="Karakter FT">
             </a>
-            <a href="#" class="hotspot vokasi-hotspot" data-fakultas="vokasi">
+
+            <!-- VOKASI — langsung masuk -->
+            <a href="vokasi.html" class="hotspot vokasi-hotspot" data-fakultas="vokasi">
                 <img src="COVER/gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
             </a>
+
+            <!-- FIA — langsung masuk -->
             <a href="fia.html" class="hotspot fia-hotspot" data-fakultas="fia">
                 <img src="COVER/gambar/fakultas/fia.png" alt="Karakter FIA">
             </a>
+
+            <!-- Fakultas lain → popup atau silent -->
             <a href="#" class="hotspot fik-hotspot" data-fakultas="fik">
                 <img src="COVER/gambar/fakultas/fik.png" alt="Karakter FIK">
             </a>
@@ -66,14 +77,18 @@
             <a href="#" class="hotspot fasilkom-hotspot" data-fakultas="fasilkom">
                 <img src="COVER/gambar/fakultas/fasilkom.png" alt="Karakter FASILKOM">
             </a>
+
+            <!-- FEB — klik tapi tidak terjadi apa-apa -->
             <a href="#" class="hotspot feb-hotspot" data-fakultas="feb">
                 <img src="COVER/gambar/fakultas/feb.png" alt="Karakter FEB">
             </a>
+
             <a href="#" class="hotspot fib-hotspot" data-fakultas="fib">
                 <img src="COVER/gambar/fakultas/fib.png" alt="Karakter FIB">
             </a>
         </div>
 
+        <!-- POPUP -->
         <div id="character-popup" class="character-popup-modal">
             <div class="popup-content">
                 <button id="closePopupArrow" class="popup-close-arrow">
@@ -96,8 +111,8 @@
     const aboutButton = document.getElementById('aboutButton');
     const loadingText = document.getElementById('loadingText');
 
-    // FEB, FT, VOKASI → bisa diklik tapi tidak muncul apa²
-    const DISABLED_FACULTIES = ['feb', 'ft', 'vokasi'];
+    // Fakultas silent mode (tidak membuka apa-apa)
+    const DISABLED_FACULTIES = ['feb'];
 
     startButton.addEventListener('click', function(e) {
         e.preventDefault();
@@ -141,18 +156,18 @@
         hotspot.addEventListener('click', function(e) {
             const fakultasCode = this.dataset.fakultas;
 
-            // FIA → boleh masuk
-            if (fakultasCode === "fia") {
+            // FT, FIA, VOKASI → langsung hyperlink
+            if (fakultasCode === "fia" || fakultasCode === "vokasi" || fakultasCode === "ft") {
                 return; 
             }
 
-            // FEB, FT, VOKASI → klik tapi diam
+            // FEB → klik tapi diam (tidak popup)
             if (DISABLED_FACULTIES.includes(fakultasCode)) {
                 e.preventDefault();
                 return;
             }
 
-            // FMIPA + fakultas lain → popup
+            // Fakultas lain → popup Coming Soon
             e.preventDefault();
             popupImage.src = "COVER/gambar/comingsoon.png";
             popupTitle.textContent = "Coming Soon";
@@ -169,6 +184,7 @@
             popupModal.style.display = 'none';
         }
     });
-</script>
+    </script>
+
 </body>
 </html>
