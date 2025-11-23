@@ -17,11 +17,17 @@ body {
 }
 
 /* Banner */
-#landing, .wrapper {
+#landing {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 
 .banner {
   width: 90%;
