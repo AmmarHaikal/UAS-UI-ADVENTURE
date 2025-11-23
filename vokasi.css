@@ -453,15 +453,18 @@ body {
   align-items: center;
 }
 
-/* footer content layout: button + credit */
 .footer-content{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;   /* tombol berada di kiri */
   align-items: center;
-  gap: 24px;
+  gap: 40px;                     /* jarak biar tidak terlalu dekat */
   flex-wrap: nowrap;
   text-align: left;
+}
+
+.credit{
+  margin-left: auto;             /* ini bikin credit geser ke kanan */
 }
 
 /* credit block */
