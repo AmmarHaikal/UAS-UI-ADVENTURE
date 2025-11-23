@@ -36,7 +36,7 @@
             <a href="#" class="hotspot ft-hotspot" data-fakultas="ft">
                 <img src="COVER/gambar/fakultas/ft.png" alt="Karakter FT">
             </a>
-            <a href="#" class="hotspot vokasi-hotspot" data-fakultas="vokasi">
+            <a href="vokasi.html" class="hotspot vokasi-hotspot" data-fakultas="vokasi">
                 <img src="COVER/gambar/fakultas/vokasi.png" alt="Karakter Vokasi">
             </a>
             <a href="fia.html" class="hotspot fia-hotspot" data-fakultas="fia">
@@ -143,6 +143,8 @@
 
             // FIA → boleh masuk
             if (fakultasCode === "fia") {
+                return; 
+            } else if (fakultasCode === "vokasi") {
                 return; 
             }
 
