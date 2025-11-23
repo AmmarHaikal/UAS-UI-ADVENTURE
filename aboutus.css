@@ -1,0 +1,110 @@
+/* ===================== SLIDE ===================== */
+.slide {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+
+/* ===================== NEXT BUTTON ===================== */
+.next-btn {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    animation: glowButton 2s infinite ease-in-out;
+}
+
+.next-btn img {
+    width: 90px;
+    filter: drop-shadow(0 0 12px white);
+    transition: 0.3s;
+}
+
+.next-btn:hover img {
+    transform: scale(1.25);
+}
+
+@keyframes glowButton {
+    0%   { transform: scale(1);   filter: drop-shadow(0 0 12px white);}
+    50%  { transform: scale(1.18); filter: drop-shadow(0 0 25px white);}
+    100% { transform: scale(1);   filter: drop-shadow(0 0 12px white);}
+}
+
+
+/* ===================== ANGGOTA ===================== */
+.anggota-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+}
+
+.anggota {
+    position: absolute;
+    width: 170px;
+    transform: translate(-50%, -50%);
+    animation: goyang 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 18px white);
+}
+
+/* ====== POSISI SESUAI COVER-KEDUAFIX (1).png ====== */
+
+/* BARIS ATAS */
+.gedung-kiri-atas {
+    top: 30%;
+    left: 23%;
+}
+
+.gedung-tengah-atas {
+    top: 29%;
+    left: 50%;
+}
+
+.gedung-kanan-atas {
+    top: 30%;
+    left: 77%;
+}
+
+/* BARIS BAWAH */
+.gedung-kiri-bawah {
+    top: 70%;
+    left: 34%;
+}
+
+.gedung-kanan-bawah {
+    top: 70%;
+    left: 66%;
+}
+
+
+/* ===================== ANIMASI ===================== */
+@keyframes goyang {
+    0% {
+        transform: translate(-50%, -50%) translateX(0) scale(1);
+        filter: drop-shadow(0 0 15px white);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateX(-10px) scale(1.07);
+        filter: drop-shadow(0 0 25px white);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(10px) scale(1.05);
+        filter: drop-shadow(0 0 20px white);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateX(-7px) scale(1.09);
+        filter: drop-shadow(0 0 28px white);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(0) scale(1);
+        filter: drop-shadow(0 0 15px white);
+    }
+}
