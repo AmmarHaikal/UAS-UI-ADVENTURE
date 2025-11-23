@@ -1,3 +1,14 @@
+/* FIX OVERFLOW DAN HEIGHT DARI HALAMAN LAIN */
+body, html {
+  height: auto !important;
+  overflow-y: auto !important;
+}
+
+section {
+  height: auto !important;
+  overflow: visible !important;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
