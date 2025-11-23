@@ -8,65 +8,67 @@
 </head>
 <body>
 
-    <header class="hero">
-        <img src="image/headerfia.jpeg" alt="Header FIA UI">
-    </header>
-
-    <section class="logo-section">
-        <img src="image/logofia.png" alt="Logo FIA UI" class="logo-fia">
-    </section>
-
-    <section class="photo-row">
-
-        <div class="photo-card">
-            <img src="image/foto1.png" alt="Foto 1">
-            <p class="photo-desc">Gedung FIA baru.</p>
-        </div>
-
-        <div class="photo-card">
-            <img src="image/foto2.png" alt="Foto 2">
-            <p class="photo-desc">BAMEN (bawah basement) "kantin lama FIA di FISIP".</p>
-        </div>
-
-        <div class="photo-card">
-            <img src="image/foto3.png" alt="Foto 3">
-            <p class="photo-desc">FIA Lounge "kantin baru FIA".</p>
-        </div>
-
-    </section>
-
-    <section class="photo-row">
-
-        <div class="photo-card">
-            <img src="image/foto4.png" alt="Foto 4">
-            <p class="photo-desc">Spot foto ikon FIA lama.</p>
-        </div>
-
-        <div class="photo-card">
-            <img src="image/foto5.png" alt="Foto 5">
-            <p class="photo-desc">Kucing ikon FIA (Adhi).</p>
-        </div>
-
-        <div class="photo-card">
-            <img src="image/foto6.png" alt="Foto 6">
-            <p class="photo-desc">Makanan ikon BAMEN, Taichan.</p>
-        </div>
-
-    </section>
-
-    <section id="desc-section">
-        <div class="desc">
-            <h2>Tentang FIA UI</h2>
-            <p>
-                Seiring berjalannya waktu, lingkungan FIA UI mengalami berbagai perkembangan yang membentuk identitasnya hingga saat ini. Setelah sepuluh tahun berdiri, FIA akhirnya memiliki gedung baru yang menjadi pusat kegiatan akademik dan non-akademik, menggantikan ketergantungan sebelumnya pada fasilitas FISIP. Perubahan ini juga terlihat pada area kegiatan mahasiswa, dari kantin lama di basement FISIP yang dikenal dengan nama Bamen, hingga hadirnya FIA Lounge sebagai kantin baru yang lebih representatif dan nyaman bagi sivitas akademika. Elemen-elemen ikonik yang pernah melekat pada FIA, seperti tembok ungu sebagai spot foto favorit mahasiswa, kini menjadi bagian dari sejarah visual yang terus dikenang. Kehadiran kucing kampus bernama Adhi turut menambah karakter khas lingkungan FIA yang bersahabat. Selain itu, kuliner seperti sate taichan yang populer di Bamen tetap menjadi bagian dari budaya mahasiswa yang sulit dipisahkan. Keseluruhan perubahan dan kenangan ini mencerminkan dinamika perkembangan FIA UI dalam menciptakan lingkungan belajar yang lebih mandiri, nyaman, dan berkarakter.
-            </p>
+    <!-- HEADER -->
+    <section id="landing">
+        <div class="wrapper">
+          <img src="image/headerfia.jpeg" alt="Banner FIA UI" class="banner">
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <a href="javascript:history.back()" class="back-button">← Kembali</a>
-    </footer>
+    <!-- LOGO -->
+    <section id="logo">
+        <img src="image/logofia.png" alt="Logo FIA UI" class="logo">
+    </section>
 
-</body>
-</html>
+    <!-- ====== GALLERY GRID (3 kolom × 2 baris) ====== -->
+<section id="gallery-grid">
+  <div class="grid">
+
+      <div class="photo green">
+          <img src="image/foto1.png" alt="Foto 1">
+          <div class="caption">Gedung FIA baru</div>
+      </div>
+
+      <div class="photo orange">
+          <img src="image/foto2.png" alt="Foto 2">
+          <div class="caption">Bamen (kantin lama)</div>
+      </div>
+
+      <div class="photo blue">
+          <img src="image/foto3.png" alt="Foto 3">
+          <div class="caption">FIA Lounge</div>
+      </div>
+
+      <div class="photo green">
+          <img src="image/foto4.png" alt="Foto 4">
+          <div class="caption">Spot Foto Ikon</div>
+      </div>
+
+      <div class="photo orange">
+          <img src="image/foto5.png" alt="Foto 5">
+          <div class="caption">Adhi (Kucing FIA)</div>
+      </div>
+
+      <div class="photo blue">
+          <img src="image/foto6.png" alt="Foto 6">
+          <div class="caption">Taichan Bamen</div>
+      </div>
+
+  </div>
+</section>
+
+
+<!-- ====== SECTION TENTANG ====== -->
+<section id="desc-section">
+    <div class="desc">
+        <h2>Tentang FIA UI</h2>
+        <p>
+            Seiring berjalannya waktu, lingkungan FIA UI mengalami berbagai perkembangan yang membentuk identitasnya hingga saat ini. Setelah sepuluh tahun berdiri, FIA akhirnya memiliki gedung baru yang menjadi pusat kegiatan akademik dan non-akademik. Perubahan ini juga terlihat pada area kegiatan mahasiswa, dari kantin lama Bamen hingga hadirnya FIA Lounge. Elemen-elemen ikonik seperti tembok ungu dan kucing kampus bernama Adhi menjadi ciri khas lingkungan FIA.
+        </p>
+    </div>
+</section>
+
+<!-- ====== TOMBOL KEMBALI ====== -->
+<div class="back-wrapper">
+    <button class="back-btn" onclick="history.back()">Kembali</button>
+</div>
